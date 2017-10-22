@@ -1,6 +1,6 @@
 # pnr
 
-This package let's you handle swedish pnrs.
+This package let's you format Swedish national identification numbers.
 
 ## Install
 
@@ -15,10 +15,16 @@ $ composer require adaptivemedia/pnr
 ``` php
 require_once 'vendor/autoload.php';
 
+// Short format...
 $pnr = '198306030217';
-$pnrService = new Adaptivemedia\Pnr\Pnr($pnr);
+$pnrService = new SwedishPersonalNumber($pnr);
+$formattedIdentificationNumber = $pnrService->format(); // 830603-0217
 
-$formattedPnr = $pnrService->get8WithHyphen();
+// Long format...
+$formatter = SwedishPersonalNumber::FORMAT_LONG;
+$pnrService = new SwedishPersonalNumber('830603-0217', new $formatter);
+
+$formattedIdentificationNumber = $pnrService->format(); // 19830603-0217
 ```
 
 ## Testing
