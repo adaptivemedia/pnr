@@ -3,13 +3,17 @@
 namespace Adaptivemedia\Pnr;
 
 use Adaptivemedia\Pnr\Formatters\LongLengthFormatter;
+use Adaptivemedia\Pnr\Formatters\LongLengthNoDashFormatter;
 use Adaptivemedia\Pnr\Formatters\ShortLengthFormatter;
+use Adaptivemedia\Pnr\Formatters\ShortLengthNoDashFormatter;
 use Adaptivemedia\Pnr\Formatters\SwedishPersonalNumberFormatterInterface as FormatterInterface;
 
 class SwedishPersonalNumber
 {
     public const FORMAT_SHORT= ShortLengthFormatter::class;
+    public const FORMAT_SHORT_NO_DASH = ShortLengthNoDashFormatter::class;
     public const FORMAT_LONG = LongLengthFormatter::class;
+    public const FORMAT_LONG_NO_DASH = LongLengthNoDashFormatter::class;
 
     private $personalNumber;
     private $formatter = self::FORMAT_SHORT;
